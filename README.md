@@ -1,56 +1,92 @@
-# AI Based Intrusion Detection
+# AI-Based Intrusion Detection System (UNSW-NB15)
 
-![AI_Based_IDS_New](https://github.com/user-attachments/assets/ea4abf84-c100-4725-88ec-61ef036720d1)
+A machine learning-based Intrusion Detection System (IDS) for classifying network traffic into attack categories using the UNSW-NB15 dataset.  
+The project includes both a training notebook and an interactive Streamlit application.
 
+## Project Highlights
+- Multi-class intrusion detection using trained ML pipeline artifacts.
+- Streamlit app for interactive feature input and prediction.
+- Dashboard views for session-level traffic and prediction insights.
+- Model performance reference panel and attack knowledge base.
+- Reproducible dependency setup with a single `requirements.txt`.
 
+## App Features
+The Streamlit app (`app.py`) currently includes:
+- `Predict` tab
+  - Manual feature input (numeric + categorical)
+  - Preset traffic profiles
+  - Model prediction + model confidence
+- `Dashboard` tab
+  - Session prediction summary
+  - Traffic trend and prediction distribution views
+- `Model Performance` tab
+  - Reference evaluation metrics from notebook workflow
+- `Attack Knowledge Base` tab
+  - Class severity, descriptions, and recommended actions
 
-## Overview
-This project aims to predict potential **security threats** in network traffic by analyzing pre-recorded data. Using machine learning techniques, the model processes historical network traffic data to identify patterns and anomalies indicative of cyber threats.
+## Tech Stack
+- Python
+- Streamlit
+- Pandas, NumPy
+- Scikit-learn
+- XGBoost
+- imbalanced-learn
+- Matplotlib, Seaborn
+- Joblib
 
-## Features
-- **Data Preprocessing**: Cleans and prepares network traffic data for analysis.
-- **Feature Extraction**: Extracts relevant attributes for model training.
-- **Threat Prediction**: Uses a trained model to classify network traffic as normal or malicious.
-- **Visualization**: Provides insights into network behavior through graphs and charts.
-- **Performance Evaluation**: Assesses the accuracy and effectiveness of the predictive model.
+## Repository Structure
+```text
+.
+├── app.py
+├── ai-based-ids.ipynb
+├── requirements.txt
+├── unsw_pipeline_xgb.pkl
+├── unsw_label_encoder.pkl
+├── label_classes.pkl
+└── (dataset files are downloaded locally; not tracked in Git)
+```
 
-## Technologies Used
-- **Python**
-- **Scikit-Learn** (for machine learning models)
-- **Pandas** (for data manipulation)
-- **NumPy** (for numerical computing)
-- **Matplotlib/Seaborn** (for data visualization)
+## Dataset
+This repository does not track large raw CSV files.  
+Download the UNSW-NB15 data locally and place it in your workspace before running notebook training.
 
-## Installation
-### Prerequisites
-Ensure you have Python installed. You can download it from [python.org](https://www.python.org/downloads/).
+Suggested source:
+- UNSW-NB15 official project page: [https://research.unsw.edu.au/projects/unsw-nb15-dataset](https://research.unsw.edu.au/projects/unsw-nb15-dataset)
 
-### Steps
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/network-threat-prediction.git
-   cd network-threat-prediction
-   ```
-2. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-3. Run the prediction script:
-   ```bash
-   python predict.py --input data/sample_traffic.csv
-   ```
+## Setup
+### 1. Create and activate a virtual environment
 
-## Usage
-- Prepare network traffic data in CSV format.
-- Run the prediction script to analyze traffic and identify potential threats.
-- Review the results and visualization outputs in the `results/` directory.
+macOS/Linux:
+```bash
+python -m venv .venv
+source .venv/bin/activate
+```
 
-## Contribution
-Contributions are welcome! Feel free to open issues, suggest improvements, or submit pull requests.
+Windows:
+```bash
+python -m venv .venv
+.venv\Scripts\activate
+```
 
-## License
-This project is licensed under the MIT License.
+### 2. Install dependencies
+```bash
+pip install -r requirements.txt
+```
 
-## Contact
-For inquiries, reach out at [your email or GitHub profile].
+## Run the App
+```bash
+streamlit run app.py
+```
 
+## Training / Experiment Notebook
+Use the notebook below for model development and experimentation:
+- `ai-based-ids.ipynb`
+
+## Notes
+- This project performs ML-based classification on traffic features; it is not a full production SOC pipeline.
+- Model confidence is a probability estimate, not a guarantee of correctness.
+- Large datasets are intentionally excluded from version control for GitHub compatibility.
+
+## Author
+Syed Asir Hassan  
+[GitHub](https://github.com/AsirHassan)

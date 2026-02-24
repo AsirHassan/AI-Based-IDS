@@ -1,0 +1,13 @@
+.DS_Store
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.vscode/
+.venv/
+venv/
+
+# Large data files (download locally, do not commit)
+UNSW CSV Files/
+UNSW_NB15_training-set.csv
+UNSW_NB15_testing-set.csv
+unsw_merged_cleaned_reduced_dataset.csv
