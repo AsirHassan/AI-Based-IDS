@@ -3,6 +3,9 @@
 A machine learning-based Intrusion Detection System (IDS) for classifying network traffic into attack categories using the UNSW-NB15 dataset.  
 The project includes both a training notebook and an interactive Streamlit application.
 
+Live Demo:
+https://asir-ai-ids.streamlit.app/
+
 ## Project Highlights
 - Multi-class intrusion detection using trained ML pipeline artifacts.
 - Streamlit app for interactive feature input and prediction.
